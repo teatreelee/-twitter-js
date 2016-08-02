@@ -4,7 +4,7 @@ var swig = require('swig');
 var app = express(); // creates an instance of an express application
 
 var server = app.listen(3000, function(){
-	console.log("server listening");
+	console.log('server listening');
 })
 
 var people = [
@@ -14,9 +14,11 @@ var people = [
 
 swig.setDefaults({ cache: false });
  
-app.engine('html', swig.renderFile);
-app.set('views', __dirname + '/views');
-app.set('view engine', 'html');
+
+ //WHAT IS GOING ON HERE
+app.engine('html', swig.renderFile); // map the EJS template engine to “.html” files:
+app.set('views', __dirname + '/views'); // point res.render to the proper directory
+app.set('view engine', 'html'); // have res.render work with html files
 
 app.get('/', function(req, res){
 	swig.renderFile(__dirname + '/views/index.html', people, function (err, output) {
@@ -25,6 +27,8 @@ app.get('/', function(req, res){
 		res.render('index',{title:  'Hall of Fame', people: people});
 	});
 })
+
+//TO HERE
 
 app.use('/special/', function(req, res, next){
 	console.log( "you reached the special area.");
@@ -41,5 +45,5 @@ app.use('/special/', function(req, res, next){
 //     ]
 // };
 // swig.renderFile('/views/index.html', locals, function (err, output) {
-//     console.log(output);
+//     console.log(output); //when we renderfiles, we go to the source it asks for, takes thee variables, and run a function
 // });
