@@ -24,7 +24,6 @@ app.get('/', function(req, res){
 		console.log(req.method + ' ' + req.route.path + " " + res.statusCode);
 		res.render('index',{title:  'Hall of Fame', people: people});
 	});
-	//res.send(req.method + ' ' + req.route.path + " " + res.statusCode);
 })
 
 app.use('/special/', function(req, res, next){
