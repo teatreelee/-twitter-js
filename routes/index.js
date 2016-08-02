@@ -1,6 +1,3 @@
-var routes = require('./routes/');
-app.use('/', routes);
-
 var express = require('express');
 var router = express.Router();
 // could use one line instead: var router = require('express').Router();
