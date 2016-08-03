@@ -1,6 +1,6 @@
 var _ = require('lodash');
 
-var data = [];
+var data = [{name: 'T Lee', content: "hi!!"}];
 
 function add (name, content) {
   data.push({ name: name, content: content });
@@ -34,5 +34,3 @@ var getFakeTweet = function() {
 for (var i = 0; i < 10; i++) {
   module.exports.add( getFakeName(), getFakeTweet() );
 }
-
-console.log(data);

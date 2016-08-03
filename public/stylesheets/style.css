@@ -4,6 +4,10 @@ body {
   /* The html and body elements cannot have any padding or margin. */
 }
 
+li {
+  list-style-type: none;
+}
+
 /* Wrapper for page content to push down footer */
 #wrap {
   min-height: 100%;
@@ -56,4 +60,12 @@ code {
 }
 .content .by {
   font-weight: bold;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.retweet {
+  color: blue;
 }

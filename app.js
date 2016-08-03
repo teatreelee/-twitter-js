@@ -16,23 +16,24 @@ app.use(express.static('public'));
 
 swig.setDefaults({ cache: false });
  
-
+showForm: true;
  //WHAT IS GOING ON HERE
 app.engine('html', swig.renderFile); // map the EJS template engine to “.html” files:
 app.set('views', __dirname + '/views'); // point res.render to the proper directory
 app.set('view engine', 'html'); // have res.render work with html files
 //app.use("/public", express.static(__dirname + '/public'));
 app.get('/', function(req, res){
-	swig.renderFile(__dirname + '/views/index.html', data, function (err, output) {
+	swig.renderFile(__dirname + '/views/index.html?showForm=true', data, function (err, output) {
 		if (err)  throw err;
 		console.log(req.method + ' ' + req.route.path + " " + res.statusCode);
-		res.render('index',{});
+		res.render('index',{tweets: tweets});
 	});
 })
 // app.get('/elephants/style.css', function(req, res){
 // 	res.sendfile(__dirname + '/public/stylesheets/style.css')
 // })
 //TO HERE
+
 app.use('/special/', function(req, res, next){
 	console.log( "you reached the special area.");
 	res.send('hi');
